@@ -75,6 +75,10 @@ with `OPENAI_BASE_URL` (for example `http://localhost:8080`) and, if required,
 1. srclight's `Indexer` runs without an embedding model (parse, symbols, edges).
    A small in-memory patch to srclight's C/C++ symbol query also captures
    pointer-returning functions (`srclight_patches.py`).
+   The same module registers Lean 4 (`.lean`): a column-0 declaration line
+   scan (`lean_line_decls`) always runs, and the tree-sitter-lean grammar
+   (`lean` extra) adds namespaces when it loads; the scan recovers what the
+   grammar loses to parse errors on Mathlib notation (`register_lean`).
 2. **Ingest** (`fusion/ingest.py`): srclight's `index.db` becomes the
    `fusion.db` chunk store. Each chunk gets a context header,
    `relpath [language] EnclosingScope`, prepended to its embed text, plus

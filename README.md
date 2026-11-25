@@ -56,6 +56,11 @@ python -m venv .venv
 pip install -e ".[dev]"
 ```
 
+Lean 4 (`.lean`) is indexed out of the box by a declaration line scan. The optional `lean` extra
+adds the tree-sitter-lean grammar for namespaces and finer spans; its package currently ships
+without the compiled parser, so build `tree_sitter_lean._binding` from the grammar's `src/` if
+`import tree_sitter_lean` fails.
+
 ## Quick usage
 
 ### Keyword-only (deterministic)
