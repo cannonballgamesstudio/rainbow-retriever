@@ -21,6 +21,8 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["pytest>=8", "httpx>=0.27"]
+# Lean 4 symbols/outlines/call graph (srclight_patches.register_lean). Not on PyPI; pinned commit.
+lean = ["tree-sitter-lean @ git+https://github.com/Julian/tree-sitter-lean@f35fa9b1ad3edd22c2b07b61f569a6d9c8e07d6e"]
 
 [tool.setuptools.packages.find]
 where = ["src"]
